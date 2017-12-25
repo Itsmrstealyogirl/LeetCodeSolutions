@@ -11,7 +11,10 @@
 def isUnique(s):
 	myDict = {}
 	for c in s:
-		myDict[c] += 1
+		if c not in myDict:
+			myDict[c] = 1
+		else:
+			myDict[c] += 1
 	for key in myDict:
 		if myDict[key] > 1:
 			return False
