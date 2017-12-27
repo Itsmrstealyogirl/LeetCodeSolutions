@@ -11,7 +11,6 @@ def threeSum(nums):
         	iter8 = lo + 1
         	while iter8 < hi:
         		arr = [nums[lo],nums[iter8],nums[hi]]
-        		arr.sort()
         		if sum(arr) == 0:
         			if str(arr) in myDict:
         				myDict[str(arr)] += 1
