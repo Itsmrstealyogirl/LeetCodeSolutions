@@ -1,10 +1,12 @@
 def remnthFromEnd(head, n):
-	temp = []
-	iterNode = head
-	while (iterNode.next != None):
-		temp.append(iterNode) 
-		iterNode = iterNode.next
-	temp.append(iterNode)
-	i = len(temp) - n
-	temp[i - 1].next = temp[i-1].next.next
-	return head
+	iterNode1 = iterNode2 = head
+    for i in range(n):
+        iterNode1 = iterNode1.next
+    if not iterNode1:
+        return head.next
+    while(iterNode1.next):
+        iterNode1 = iterNode1.next
+        iterNode2 = iterNode2.next
+    iterNode2.next = iterNode2.next.next
+    return head
+	
