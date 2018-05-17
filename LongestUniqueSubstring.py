@@ -12,13 +12,29 @@
 
 
 def isUnique(s):
-    return len(s) == len(set(s))
+    return (len(s) == len(set(s)))
 
+def firstRepChar(s):
+    dic = {}
+    for c in s:
+        if c not in dic:
+            dic[c] = 1
+        else:
+            return c
+    return '\n'
 
 def longestUniqueSub(s):
     if len(s) <= 1:
-        return s
+        return len(s)
     if isUnique(s):
-        return s
+        return len(s)
     else:
+        repChar = firstRepChar(s)
+        repIndex1 = s.index(repChar)
+        repIndex2 = repIndex1 + s[repIndex1+1:].index(repChar) + 1
+        substring1 = s[:repIndex2]
+        substring2 = s[repIndex1+1:]
+        len1 = len(substring1)
+        len2 = longestUniqueSub(substring2)
+        return max(len1, len2)
 
