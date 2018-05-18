@@ -2,12 +2,13 @@
 
 def isValidSudoku(board):
 	colHashes = []
-	for col in range(len(board[0])):
+	sudokuSize = 9
+	for col in range(sudokuSize):
 		colHash = {}
 		colHashes.append(colHash)
-	for row in range(len(board)):
+	for row in range(sudokuSize):
 		rowHash = {}
-		for col in range(len(board[0])):
+		for col in range(sudokuSize):
 			if (board[row][col] != '.'):
 				num = int(board[row][col])
 				if num not in rowHash:
