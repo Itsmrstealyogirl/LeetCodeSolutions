@@ -3,6 +3,7 @@
 def isValidSudoku(board):
 	colHashes = []
 	sudokuSize = 9
+	gridSize = 3
 	for col in range(sudokuSize):
 		colHash = {}
 		colHashes.append(colHash)
@@ -20,11 +21,11 @@ def isValidSudoku(board):
 				else:
 					return False
 
-	for gridRow in range(3):
-		for gridCol in range(3):
+	for gridRow in range(gridSize):
+		for gridCol in range(gridSize):
 			gridHash = {}
-			for row in range(gridRow*3,gridRow*3+3):
-				for col in range(gridCol*3,gridCol*3+3):
+			for row in range(gridRow*gridSize,gridRow*gridSize+gridSize):
+				for col in range(gridCol*gridSize,gridCol*gridSize+gridSize):
 					if (board[row][col] != '.'):
 						num = int(board[row][col])
 						if num not in gridHash:
