@@ -6,6 +6,8 @@ def threeSum(nums):
         retList = []
         myDict = {}
         nums.sort()
+        if nums[0] > 0 or nums[len(nums) - 1] < 0:
+            break
         for lo in range(len(nums)-2):
         	hi = len(nums)-1
         	iter8 = lo + 1
