@@ -9,11 +9,15 @@
 class Solution:
     def in_order_traverse_2(self, root, last_val) -> bool:
         if root.left is None:
-            last_val.append(root)
+            last_val.append(root.val)
         else:
             self.in_order_traverse_2(root.left, last_val)
+            last_val.append(root.val)
         if root.right is None:
-            last_val.append
+            pass
+        else:
+            self.in_order_traverse_2(root.right, last_val)
+            last_val.append(root.right.val)
 
     def in_order_traverse(self, root, last_val) -> bool:
         if root.left is not None:
