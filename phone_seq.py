@@ -23,13 +23,19 @@ letter_dict = {
     "9" : ['w','x','y','z']
 }
 
-
-def combination(digits, numlist, num):
-
-
-class Solution(object):
-    def letterCombinations(self, digits):
-        """
-        :type digits: str
-        :rtype: List[str]
-        """
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        output = []
+        for digit in digits:
+            new_output = []
+            for letter in letter_dict[digit]:
+                if len(output) == 0:
+                    new_output = letter_dict[digit]
+                    break
+                else:
+                    for prefix in output:
+                        new_output.append(prefix+letter)
+            output = new_output
+        return output
+        
+        
